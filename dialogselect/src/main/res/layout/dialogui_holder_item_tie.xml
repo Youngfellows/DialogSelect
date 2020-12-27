@@ -17,13 +17,13 @@
         android:text="xxxx"
         android:textColor="@color/color_text_black" />
 
-<!--    <android.support.v7.widget.AppCompatRadioButton
-        android:id="@+id/rb_control"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentLeft="true"
-        android:layout_centerVertical="true"
-        android:layout_marginLeft="10dp" />-->
+    <!--    <android.support.v7.widget.AppCompatRadioButton
+            android:id="@+id/rb_control"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="10dp" />-->
 
     <android.support.v7.widget.AppCompatCheckBox
         android:id="@+id/rb_control"
@@ -31,6 +31,8 @@
         android:layout_height="wrap_content"
         android:layout_alignParentLeft="true"
         android:layout_centerVertical="true"
-        android:layout_marginLeft="10dp" />
+        android:layout_marginLeft="10dp"
+        android:clickable="false"
+        android:focusable="false" />
 
 </RelativeLayout>

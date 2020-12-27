@@ -78,4 +78,12 @@ public class TieItemHolder extends SuperItemHolder<TieBean> {
             rbControl.setChecked(false);
         }
     }
+
+    @Override
+    public void onClick(View view) {
+        super.onClick(view);
+        boolean isChecked = rbControl.isChecked();
+        Log.d(TAG, "onClick:: click item ," + position + ",isChecked");
+        rbControl.setChecked(!isChecked);
+    }
 }
