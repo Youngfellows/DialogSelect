@@ -1,0 +1,3 @@
+rootProject.name='DialogSelect'
+include ':app'
+include ':dialogselect'

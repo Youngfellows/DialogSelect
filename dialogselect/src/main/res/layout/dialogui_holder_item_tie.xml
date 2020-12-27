@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/ll_tie"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:padding="10dp">
+
+    <!--AppCompatRadioButton-->
+    <TextView
+        android:id="@+id/tv_title"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_centerVertical="true"
+        android:layout_toRightOf="@+id/rb_control"
+        android:background="@color/ios_btntext_blue"
+        android:gravity="center"
+        android:text="xxxx"
+        android:textColor="@color/color_text_black" />
+
+<!--    <android.support.v7.widget.AppCompatRadioButton
+        android:id="@+id/rb_control"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_centerVertical="true"
+        android:layout_marginLeft="10dp" />-->
+
+    <android.support.v7.widget.AppCompatCheckBox
+        android:id="@+id/rb_control"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_centerVertical="true"
+        android:layout_marginLeft="10dp" />
+
+</RelativeLayout>
