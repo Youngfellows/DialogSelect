@@ -70,6 +70,7 @@ public abstract class SuperAdapter<T> extends Adapter<ViewHolder> {
     public void onBindViewHolder(ViewHolder holder, int position) {
         if (holder != null) {
             baseHolder = (SuperItemHolder) holder;
+            holder.itemView.setTag(position);
             baseHolder.setPosition(position); //为Holder绑定数据
             baseHolder.setData(mDatas.get(position), countPosition(position));
         }

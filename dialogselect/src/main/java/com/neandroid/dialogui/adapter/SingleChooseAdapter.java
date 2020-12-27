@@ -25,6 +25,7 @@ public class SingleChooseAdapter extends SuperAdapter<TieBean> implements TieIte
     public SingleChooseAdapter(Context mContext, List<TieBean> list, boolean isItemType) {
         super(mContext, list);
         this.isItemType = isItemType;
+        TieItemHolder.setOnCheckedChangeListener(this);
     }
 
     /**
@@ -33,7 +34,7 @@ public class SingleChooseAdapter extends SuperAdapter<TieBean> implements TieIte
      */
     @Override
     public SuperItemHolder getItemHolder(View view) {
-        return new TieItemHolder(mContext, mItemClickListener, view, this);
+        return new TieItemHolder(mContext, mItemClickListener, view);
     }
 
     /**
@@ -71,6 +72,11 @@ public class SingleChooseAdapter extends SuperAdapter<TieBean> implements TieIte
         List<TieBean> datas = getDatas();
         TieBean tieBean = datas.get(position);
         tieBean.setSelect(isChecked);
+        //setDatas(datas);
+        for (int i = 0; i < datas.size(); i++) {
+            TieBean bean = datas.get(i);
+            Log.w(TAG, "onCheckedChanged: " + i + "," + bean);
+        }
         notifyDataSetChanged();
     }
 }

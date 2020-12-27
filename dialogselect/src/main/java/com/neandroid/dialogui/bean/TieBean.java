@@ -60,4 +60,13 @@ public class TieBean implements Serializable {
     public void setSelect(boolean select) {
         isSelect = select;
     }
+
+    @Override
+    public String toString() {
+        return "TieBean{" +
+                "id=" + id +
+                ", title='" + title + '\'' +
+                ", isSelect=" + isSelect +
+                '}';
+    }
 }
