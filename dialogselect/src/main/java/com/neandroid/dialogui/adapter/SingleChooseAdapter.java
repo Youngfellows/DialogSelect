@@ -1,6 +1,7 @@
 package com.neandroid.dialogui.adapter;
 
 import android.content.Context;
+import android.util.Log;
 import android.view.View;
 
 import com.neandroid.dialogui.R;
@@ -13,7 +14,7 @@ import java.util.List;
 /**
  * 描 述：单选对话框适配器
  */
-public class SingleChooseAdapter extends SuperAdapter<TieBean> {
+public class SingleChooseAdapter extends SuperAdapter<TieBean> implements TieItemHolder.OnCheckedChangeListener {
 
     private boolean isItemType;
 
@@ -32,7 +33,7 @@ public class SingleChooseAdapter extends SuperAdapter<TieBean> {
      */
     @Override
     public SuperItemHolder getItemHolder(View view) {
-        return new TieItemHolder(mContext, mItemClickListener, view);
+        return new TieItemHolder(mContext, mItemClickListener, view, this);
     }
 
     /**
@@ -62,5 +63,14 @@ public class SingleChooseAdapter extends SuperAdapter<TieBean> {
         } else {
             return super.countPosition(position);
         }
+    }
+
+    @Override
+    public void onCheckedChanged(View view, boolean isChecked, int position) {
+        Log.i(TAG, "onCheckedChanged:: isChecked:" + isChecked + ",position:" + position);
+        List<TieBean> datas = getDatas();
+        TieBean tieBean = datas.get(position);
+        tieBean.setSelect(isChecked);
+        notifyDataSetChanged();
     }
 }

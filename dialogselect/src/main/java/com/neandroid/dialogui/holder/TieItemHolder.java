@@ -22,13 +22,12 @@ import java.util.Map;
  */
 public class TieItemHolder extends SuperItemHolder<TieBean> {
 
-    private Map<Integer, Boolean> map = new HashMap<>();
-
     RelativeLayout llTie;
     TextView tvTitle;
     CompoundButton rbControl;
+    private OnCheckedChangeListener checkedChangeListener;
 
-    public TieItemHolder(Context mContext, OnItemClickListener listener, View itemView) {
+    public TieItemHolder(Context mContext, OnItemClickListener listener, View itemView, OnCheckedChangeListener checkedChangeListener) {
         super(mContext, listener, itemView);
         llTie = (RelativeLayout) itemView.findViewById(R.id.ll_tie);
         tvTitle = (TextView) itemView.findViewById(R.id.tv_title);
@@ -37,11 +36,6 @@ public class TieItemHolder extends SuperItemHolder<TieBean> {
             @Override
             public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
                 Log.d(TAG, "onCheckedChanged:: position:" + position + ",isChecked:" + isChecked);
-                if (isChecked == true) {
-                    map.put(position, true);
-                } else {
-                    map.remove(position);
-                }
             }
         });
     }
@@ -65,14 +59,9 @@ public class TieItemHolder extends SuperItemHolder<TieBean> {
         }
         TieBean data = getData();//获取数据,并设置条目状态
         tvTitle.setText("" + data.getTitle());
-        Log.d(TAG, "refreshView:: " + data.isSelect());
-//        if (data.isSelect()) {
-//            rbControl.setChecked(true);
-//        }
-
         rbControl.setTag(new Integer(position));
-
-        if (map != null && map.containsKey(position)) {
+        Log.d(TAG, "refreshView:: " + position + "," + data.isSelect());
+        if (data.isSelect()) {
             rbControl.setChecked(true);
         } else {
             rbControl.setChecked(false);
@@ -83,7 +72,23 @@ public class TieItemHolder extends SuperItemHolder<TieBean> {
     public void onClick(View view) {
         super.onClick(view);
         boolean isChecked = rbControl.isChecked();
-        Log.d(TAG, "onClick:: click item ," + position + ",isChecked");
+        int tagPosition = (int) rbControl.getTag();
+        Log.d(TAG, "onClick:: click item ,position:" + position + ",tagPosition:" + tagPosition + ",checkedChangeListener:" + checkedChangeListener);
         rbControl.setChecked(!isChecked);
+        if (checkedChangeListener != null) {
+            checkedChangeListener.onCheckedChanged(view, rbControl.isChecked(), tagPosition);
+        }
+
+    }
+
+    public interface OnCheckedChangeListener {
+        /**
+         * 选中状态改变
+         *
+         * @param view
+         * @param isChecked 是否选中
+         * @param position  位置
+         */
+        void onCheckedChanged(View view, boolean isChecked, int position);
     }
 }

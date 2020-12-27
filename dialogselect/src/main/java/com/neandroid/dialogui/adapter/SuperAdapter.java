@@ -17,6 +17,8 @@ import java.util.List;
  */
 public abstract class SuperAdapter<T> extends Adapter<ViewHolder> {
 
+    protected String TAG = this.getClass().getSimpleName();
+
     /**
      * 上下文
      */
