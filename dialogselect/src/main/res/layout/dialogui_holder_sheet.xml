@@ -28,8 +28,9 @@
         android:overScrollHeader="@android:color/transparent"
         android:overScrollMode="never"
         android:scrollbars="none"
-        app:limit_maxCount="4"
-        app:limit_maxHeight="200dp"/>
+        app:limit_maxHeight="300dp"/>
+
+    <!-- app:limit_maxCount="4"-->
 
 <!--    <android.support.v7.widget.RecyclerView
         android:id="@+id/rlv"

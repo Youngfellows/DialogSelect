@@ -28,7 +28,7 @@ public class MainActivity extends AppCompatActivity {
      */
     public void singlechoice(View view) {
         List<TieBean> strings = new ArrayList<TieBean>();
-        for (int i = 1; i < 20; i++) {
+        for (int i = 1; i < 401; i++) {
             strings.add(new TieBean(i, i + "条目", false));
         }
         DialogUIUtils.showSingleChooseSheet(this, strings, "列表标题", "取消", Gravity.CENTER, true, true, new DialogUIItemListener() {
