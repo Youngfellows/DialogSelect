@@ -19,11 +19,8 @@ public class Buildable {
     protected BuildBean buildByType(BuildBean bean) {
         ToolUtils.fixContext(bean);
         switch (bean.type) {
-            case DialogConfig.TYPE_MULTI_CHOOSE_SHEET:
-                buildMdMultiChoose(bean);
-                break;
-            case DialogConfig.TYPE_SINGLE_CHOOSE_SHEET:
-                buildSingleChooseSheet(bean);
+            case DialogConfig.TYPE_CHOOSE_SHEET:
+                buildChooseSheet(bean);
             default:
                 break;
         }
@@ -43,12 +40,12 @@ public class Buildable {
     }
 
     /**
-     * 单选列表对话框
+     * 列表选择对话框
      *
      * @param bean 弹出框实体
      * @return
      */
-    protected BuildBean buildSingleChooseSheet(BuildBean bean) {
+    protected BuildBean buildChooseSheet(BuildBean bean) {
         AlertDialog.Builder builder = new AlertDialog.Builder(bean.mContext);
         SheetHolder holder = new SheetHolder(bean.mContext, true);
         builder.setView(holder.rootView);

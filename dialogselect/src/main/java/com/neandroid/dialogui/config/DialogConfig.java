@@ -4,6 +4,8 @@ import android.support.annotation.ColorRes;
 
 import com.neandroid.dialogui.R;
 
+import java.security.PublicKey;
+
 
 /**
  * 描 述：公共配置
@@ -28,8 +30,8 @@ public class DialogConfig {
     public static CharSequence dialogui_btnTxt2 = "取消";
     public static CharSequence dialogui_bottomTxt = "取消";
 
-    public static final int TYPE_SINGLE_CHOOSE_SHEET = 1;
-    public static final int TYPE_MULTI_CHOOSE_SHEET = 2;
-    public static final int TYPE_MD_LOADING = 3;
-
+    public static final int TYPE_CHOOSE_SHEET = 1;//列表选择对话框
+    public static final int SINGLE_CHOOSE = 2;//单选对话框
+    public static final int MULTI_CHOOSE = 3;//多选对话框
+    public static final int TYPE_MD_LOADING = 4;
 }

@@ -75,6 +75,7 @@ public class DialogUIUtils {
      * 中间弹出列表
      *
      * @param context          上下文
+     * @param chooseType       单选/多选
      * @param datas            素组集合
      * @param gravity
      * @param bottomTxt        底部item文本
@@ -83,8 +84,8 @@ public class DialogUIUtils {
      * @param listener         事件监听
      * @return
      */
-    public static BuildBean showSingleChooseSheet(Context context, List<TieBean> datas, String title, CharSequence bottomTxt, int gravity, boolean cancleable, boolean outsideTouchable, DialogUIItemListener listener) {
-        return DialogAssigner.getInstance().assignSheet(context, datas, title, bottomTxt, gravity, cancleable, outsideTouchable, listener);
+    public static BuildBean showChooseSheet(Context context, int chooseType, List<TieBean> datas, String title, CharSequence bottomTxt, int gravity, boolean cancleable, boolean outsideTouchable, DialogUIItemListener listener) {
+        return DialogAssigner.getInstance().assignSheet(context, chooseType, datas, title, bottomTxt, gravity, cancleable, outsideTouchable, listener);
     }
 
 }

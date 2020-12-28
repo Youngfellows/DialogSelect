@@ -2,6 +2,7 @@ package com.neandroid.dialogui.holder;
 
 import android.content.Context;
 import android.support.v7.widget.RecyclerView.ViewHolder;
+import android.util.Log;
 import android.view.View;
 
 import com.neandroid.dialogui.listener.OnItemClickListener;
@@ -10,7 +11,7 @@ import com.neandroid.dialogui.listener.OnItemClickListener;
 /**
  * 描 述：RecyclerView的ViewHolder的基类
  */
-public abstract class SuperItemHolder<T> extends ViewHolder implements View.OnClickListener {
+public abstract class SuperItemHolder<T> extends ViewHolder implements View.OnClickListener, View.OnLongClickListener {
 
     protected String TAG = this.getClass().getSimpleName();
 
@@ -39,6 +40,7 @@ public abstract class SuperItemHolder<T> extends ViewHolder implements View.OnCl
     public SuperItemHolder(Context mContext, OnItemClickListener listener, View itemView) {
         super(itemView);
         itemView.setOnClickListener(this);
+        itemView.setOnLongClickListener(this);
         this.mContext = mContext;
         this.mItemClickListener = listener;
     }
@@ -78,8 +80,18 @@ public abstract class SuperItemHolder<T> extends ViewHolder implements View.OnCl
      */
     @Override
     public void onClick(View view) {
+        //Log.d(TAG, "onClick:: " + view.getTag() + ",position:" + position);
         if (mItemClickListener != null) {
             mItemClickListener.onItemClick(position);
         }
+    }
+
+    @Override
+    public boolean onLongClick(View view) {
+        //Log.d(TAG, "onLongClick:: " + view.getTag() + ",position:" + position);
+        if (mItemClickListener != null) {
+            mItemClickListener.onItemLongClick(position);
+        }
+        return false;
     }
 }

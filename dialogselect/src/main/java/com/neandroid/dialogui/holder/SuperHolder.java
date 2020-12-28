@@ -1,6 +1,8 @@
 package com.neandroid.dialogui.holder;
 
 import android.content.Context;
+import android.os.Handler;
+import android.os.Looper;
 import android.support.annotation.LayoutRes;
 import android.view.View;
 
@@ -12,12 +14,17 @@ import com.neandroid.dialogui.bean.BuildBean;
  */
 public abstract class SuperHolder {
 
+    protected String TAG = this.getClass().getSimpleName();
+
+    public Handler mHandler;
+
     /**
      * 根布局
      */
     public View rootView;
 
     public SuperHolder(Context context) {
+        mHandler = new Handler(Looper.getMainLooper());
         rootView = View.inflate(context, setLayoutRes(), null);
         findViews();
     }

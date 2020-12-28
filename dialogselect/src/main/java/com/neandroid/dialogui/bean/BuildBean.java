@@ -83,13 +83,15 @@ public class BuildBean extends Buildable implements Styleable {
     public int defaultChosen;//
     public boolean[] checkedItems;
 
-    //bottomsheet
+    //列表选择sheet
     public SuperAdapter mAdapter;
     public List<TieBean> mLists;
     public int gridColumns = 4;
 
-
-    //样式
+    //单选或者多选列表类型
+    public int mChooseType;
+    //已经选中的列表
+    public List<Integer> mMultiSelected;
 
     //三个以下按钮,颜色按此顺序
     @ColorRes

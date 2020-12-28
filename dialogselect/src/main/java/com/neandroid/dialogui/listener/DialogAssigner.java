@@ -24,9 +24,10 @@ public class DialogAssigner implements Assignable {
     }
 
     @Override
-    public BuildBean assignSheet(Context context, List<TieBean> datas, String title, CharSequence bottomTxt, int gravity, boolean cancleable, boolean outsideTouchable, DialogUIItemListener listener) {
+    public BuildBean assignSheet(Context context, int chooseType, List<TieBean> datas, String title, CharSequence bottomTxt, int gravity, boolean cancleable, boolean outsideTouchable, DialogUIItemListener listener) {
         BuildBean bean = new BuildBean();
         bean.mContext = context;
+        bean.mChooseType = chooseType;
         bean.itemListener = listener;
         bean.mLists = datas;
         bean.title = title;
@@ -35,7 +36,7 @@ public class DialogAssigner implements Assignable {
         bean.isVertical = true;
         bean.cancelable = cancleable;
         bean.outsideTouchable = outsideTouchable;
-        bean.type = DialogConfig.TYPE_SINGLE_CHOOSE_SHEET;
+        bean.type = DialogConfig.TYPE_CHOOSE_SHEET;
         return bean;
     }
 }

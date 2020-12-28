@@ -65,15 +65,31 @@ public class TieItemHolder extends SuperItemHolder<TieBean> {
 
     @Override
     public void onClick(View view) {
+        Log.d(TAG, "onClick:: " + view.getTag());
+        checkedChange(view);
         super.onClick(view);
+    }
+
+    @Override
+    public boolean onLongClick(View view) {
+        Log.d(TAG, "onLongClick:: " + view.getTag());
+        checkedChange(view);
+        return super.onLongClick(view);
+    }
+
+    /**
+     * 改变点击Item选中状态
+     *
+     * @param view 点击的Item
+     */
+    private void checkedChange(View view) {
         boolean isChecked = rbControl.isChecked();
         int tagPosition = (int) view.getTag();
-        Log.d(TAG, "onClick:: click item ,position:" + position + ",tagPosition:" + tagPosition + ",checkedChangeListener:" + checkedChangeListener);
+        Log.d(TAG, "checkedChange:: position:" + position + ",tag:" + tagPosition + ",isChecked:" + isChecked + ",checkedChangeListener:" + checkedChangeListener);
         rbControl.setChecked(!isChecked);
         if (checkedChangeListener != null) {
             checkedChangeListener.onCheckedChanged(view, rbControl.isChecked(), tagPosition);
         }
-
     }
 
     public static void setOnCheckedChangeListener(OnCheckedChangeListener listener) {

@@ -1,38 +1,27 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-              android:layout_width="match_parent"
-              android:layout_height="wrap_content"
-              xmlns:app="http://schemas.android.com/apk/res-auto"
-              xmlns:tools="http://schemas.android.com/tools"
-              android:orientation="vertical">
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical">
 
     <TextView
         android:id="@+id/dialogui_tv_title"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:paddingBottom="10dp"
-        android:paddingLeft="16dp"
-        android:paddingRight="16dp"
-        android:paddingTop="10dp"
-        android:text="标题"
         android:background="@android:color/white"
+        android:layout_centerHorizontal="true"
+        android:paddingLeft="16dp"
+        android:paddingTop="10dp"
+        android:paddingRight="16dp"
+        android:gravity="center"
+        android:paddingBottom="10dp"
+        android:text="标题"
         android:textColor="@color/text_black_light"
-        android:textSize="15sp"/>
+        android:textSize="15sp" />
 
-    <com.neandroid.dialogui.widget.MaxLimitRecyclerView
-        android:id="@+id/rlv"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:background="@drawable/dialogui_shape_wihte_round_corner"
-        android:overScrollFooter="@android:color/transparent"
-        android:overScrollHeader="@android:color/transparent"
-        android:overScrollMode="never"
-        android:scrollbars="none"
-        app:limit_maxHeight="300dp"/>
-
-    <!-- app:limit_maxCount="4"-->
-
-<!--    <android.support.v7.widget.RecyclerView
+    <!--    <android.support.v7.widget.RecyclerView
         android:id="@+id/rlv"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -42,15 +31,33 @@
         android:overScrollMode="never"
         android:scrollbars="none"/>-->
 
-    <Button
-        android:id="@+id/btn_bottom"
+    <com.neandroid.dialogui.widget.MaxLimitRecyclerView
+        android:layout_centerHorizontal="true"
+        android:id="@+id/rlv"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="10dp"
+        android:layout_below="@+id/dialogui_tv_title"
+        android:background="@drawable/dialogui_shape_wihte_round_corner"
+        android:overScrollFooter="@android:color/transparent"
+        android:overScrollHeader="@android:color/transparent"
+        android:overScrollMode="never"
+        android:scrollbars="none"
+        app:limit_maxHeight="300dp" />
+    <!-- app:limit_maxCount="4"-->
+
+    <Button
+        android:id="@+id/btn_bottom"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/rlv"
         android:layout_marginTop="10dp"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="10dp"
         android:background="@drawable/dialogui_selector_all"
+        android:paddingLeft="50dp"
+        android:paddingRight="50dp"
         android:text="取消"
         android:textColor="@color/ios_btntext_blue"
-        android:textSize="@dimen/dialogui_btn_txt_size"/>
+        android:textSize="@dimen/dialogui_btn_txt_size" />
 
-</LinearLayout>
+</RelativeLayout>
