@@ -28,7 +28,14 @@ public abstract class DialogUIListener {
     /**
      * 获取输入内容
      */
-    public void onGetInput(CharSequence input1, CharSequence input2) {
+    public void onGetInput(CharSequence inputText) {
+    }
+
+    /**
+     * 获取实时输入内容
+     */
+    public void onRealtimeInput(CharSequence inputText) {
+
     }
 
     /**
@@ -37,6 +44,5 @@ public abstract class DialogUIListener {
     public void onGetChoose(boolean[] states) {
 
     }
-
 
 }

@@ -1,5 +1,6 @@
 package com.neandroid.dialogui;
 
+import android.app.Activity;
 import android.app.Dialog;
 import android.content.Context;
 import android.content.DialogInterface;
@@ -9,6 +10,7 @@ import com.neandroid.dialogui.bean.BuildBean;
 import com.neandroid.dialogui.bean.TieBean;
 import com.neandroid.dialogui.listener.DialogAssigner;
 import com.neandroid.dialogui.listener.DialogUIItemListener;
+import com.neandroid.dialogui.listener.DialogUIListener;
 
 import java.util.List;
 
@@ -87,5 +89,21 @@ public class DialogUIUtils {
     public static BuildBean showChooseSheet(Context context, int chooseType, List<TieBean> datas, String title, CharSequence bottomTxt, int gravity, boolean cancleable, boolean outsideTouchable, DialogUIItemListener listener) {
         return DialogAssigner.getInstance().assignSheet(context, chooseType, datas, title, bottomTxt, gravity, cancleable, outsideTouchable, listener);
     }
+
+
+    /**
+     * 显示搜索弹出框
+     *
+     * @param activity         所在activity
+     * @param title            标题 不传则无标题
+     * @param cancleable       true为可以取消false为不可取消
+     * @param outsideTouchable true为可以点击空白区域false为不可点击
+     * @param listener         事件监听
+     */
+    public static BuildBean showSearchSheet(Activity activity, List<TieBean> datas ,CharSequence title, CharSequence msg, CharSequence hint1, CharSequence hint2,
+                                            CharSequence firstTxt, CharSequence secondTxt, boolean isVertical, boolean cancleable, boolean outsideTouchable, DialogUIListener listener,DialogUIItemListener itemListener) {
+        return DialogAssigner.getInstance().assignAlert(activity, datas, title, msg, hint1, hint2, firstTxt, secondTxt, isVertical, cancleable, outsideTouchable, listener, itemListener);
+    }
+
 
 }

@@ -6,7 +6,9 @@ import android.support.annotation.Nullable;
 
 
 import com.neandroid.dialogui.bean.BuildBean;
+import com.neandroid.dialogui.bean.TieBean;
 
+import java.util.List;
 import java.util.Map;
 
 
@@ -34,6 +36,9 @@ public interface Styleable {
     BuildBean setInputSize(int sizeInSp);
 
     Dialog show();
+
+    //刷新对话框
+    BuildBean refresh(List<TieBean> list);
 
     //内容设置
     BuildBean setBtnText(CharSequence btn1Text, @Nullable CharSequence btn2Text, @Nullable CharSequence btn3Text);

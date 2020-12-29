@@ -44,8 +44,17 @@ public abstract class SuperHolder {
      * 分配数据和事件
      *
      * @param context
-     * @param bean
+     * @param bean    对话框实体
      */
     public abstract void assingDatasAndEvents(Context context, BuildBean bean);
+
+    /**
+     * 更新对话框数据集
+     *
+     * @param bean 对话框实体
+     */
+    public void refreshDatas(BuildBean bean) {
+
+    }
 
 }

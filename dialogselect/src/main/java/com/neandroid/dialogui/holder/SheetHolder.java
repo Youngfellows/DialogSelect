@@ -181,11 +181,4 @@ public class SheetHolder extends SuperHolder {
             DialogUIUtils.dismiss(buildBean.dialog, buildBean.alertDialog);
         }
     }
-
-    private Runnable delayedDismissTask = new Runnable() {
-        @Override
-        public void run() {
-
-        }
-    };
 }

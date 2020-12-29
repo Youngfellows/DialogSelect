@@ -34,4 +34,5 @@ public class DialogConfig {
     public static final int SINGLE_CHOOSE = 2;//单选对话框
     public static final int MULTI_CHOOSE = 3;//多选对话框
     public static final int TYPE_MD_LOADING = 4;
+    public static final int TYPE_SEARCH_SHEET = 5;//搜索对话框
 }

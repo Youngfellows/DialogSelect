@@ -15,6 +15,17 @@ public abstract class DialogUIItemListener {
     public abstract void onItemClick(CharSequence text, int position, boolean isChecked);
 
     /**
+     * item长按事件
+     *
+     * @param text      条目内容
+     * @param position  item 位置
+     * @param isChecked 是否选中
+     */
+    public void onItemLongClick(CharSequence text, int position, boolean isChecked) {
+
+    }
+
+    /**
      * 多项选中底部点击事件
      *
      * @param multiSelected 选中列表集合

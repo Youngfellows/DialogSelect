@@ -10,6 +10,7 @@ import android.view.View;
 
 import com.neandroid.dialogui.adapter.SuperAdapter;
 import com.neandroid.dialogui.config.DialogConfig;
+import com.neandroid.dialogui.holder.SuperHolder;
 import com.neandroid.dialogui.listener.Buildable;
 import com.neandroid.dialogui.listener.DialogUIDateTimeSaveListener;
 import com.neandroid.dialogui.listener.DialogUIItemListener;
@@ -62,38 +63,58 @@ public class BuildBean extends Buildable implements Styleable {
      * 是否是白色背景
      */
     public boolean isWhiteBg = true;
+
     /**
      * 是否可以取消
      */
     public boolean cancelable = true;
+
     /**
      * 面板外是否可以点击
      */
     public boolean outsideTouchable = true;
 
+    /**
+     * 对话框
+     */
     public Dialog dialog;
     public AlertDialog alertDialog;
 
+    /**
+     * 根布局 holder
+     */
+    public SuperHolder holder;
 
     public int viewHeight;
 
 
-    //各类对话框特有的参数
+    /**
+     * 各类对话框特有的参数
+     */
     public CharSequence[] wordsMd;
     public int defaultChosen;//
     public boolean[] checkedItems;
 
-    //列表选择sheet
+    /**
+     * 列表选择sheet
+     */
     public SuperAdapter mAdapter;
     public List<TieBean> mLists;
     public int gridColumns = 4;
 
-    //单选或者多选列表类型
+    /**
+     * 单选或者多选列表类型
+     */
     public int mChooseType;
-    //已经选中的列表
+
+    /**
+     * 已经选中的列表
+     */
     public List<Integer> mMultiSelected;
 
-    //三个以下按钮,颜色按此顺序
+    /**
+     * 三个以下按钮,颜色按此顺序
+     */
     @ColorRes
     public int btn1Color = DialogConfig.iosBtnColor;
     @ColorRes
@@ -113,7 +134,9 @@ public class BuildBean extends Buildable implements Styleable {
 
     public Map<Integer, Integer> colorOfPosition;//listview 的item的特殊颜色:ColorRes
 
-    //字体大小
+    /**
+     * 字体大小
+     */
     public int btnTxtSize = 17;// in sp
     public int titleTxtSize = 14;
     public int msgTxtSize = 14;
@@ -226,6 +249,13 @@ public class BuildBean extends Buildable implements Styleable {
             return alertDialog;
         }
         return null;
+    }
+
+    @Override
+    public BuildBean refresh(List<TieBean> list) {
+        this.mLists = list;
+        refreshByType(this);
+        return this;
     }
 
     @Override
