@@ -25,5 +25,17 @@
         android:onClick="searchchoose"
         android:text="搜索对话框" />
 
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:onClick="searchtimezone"
+        android:text="时区搜索" />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:onClick="timezonechoose"
+        android:text="时区选择" />
+
 
 </LinearLayout>
